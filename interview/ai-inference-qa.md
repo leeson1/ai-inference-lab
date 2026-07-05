@@ -1,33 +1,33 @@
-# AI Inference Interview Q&A
+# AI 推理面试问答
 
-## Q1: What is TTFT?
+## Q1：什么是 TTFT？
 
-TTFT means Time To First Token. It measures how long the client waits before receiving the first generated token.
+TTFT 是 Time To First Token，衡量客户端收到第一个生成 token 之前需要等待多久。
 
-## Q2: What is TPOT?
+## Q2：什么是 TPOT？
 
-TPOT means Time Per Output Token. It measures the average decode time for generated tokens after the first token.
+TPOT 是 Time Per Output Token，衡量首 token 之后生成 token 的平均 decode 时间。
 
-## Q3: What is KV Cache?
+## Q3：什么是 KV Cache？
 
-KV Cache stores key/value tensors from previous tokens during autoregressive decoding. It avoids recomputing attention history but consumes large GPU memory.
+KV Cache 在自回归解码过程中保存历史 token 的 key/value tensor。它避免重复计算 attention 历史，但会占用大量 GPU 显存。
 
-## Q4: What is the difference between prefill and decode?
+## Q4：Prefill 和 Decode 有什么区别？
 
-Prefill processes the input prompt and builds KV Cache. Decode generates tokens one by one using the existing KV Cache.
+Prefill 处理输入 prompt 并构建 KV Cache。Decode 使用已有 KV Cache 逐 token 生成输出。
 
-## Q5: Why does batching improve throughput?
+## Q5：为什么 batching 能提升吞吐？
 
-Batching improves GPU utilization by processing multiple requests together. However, larger batches may increase per-request latency.
+Batching 通过把多个请求一起处理，提高 GPU 利用率。不过，更大的 batch 可能增加单个请求的延迟。
 
-## Q6: What is PagedAttention?
+## Q6：什么是 PagedAttention？
 
-PagedAttention is a KV Cache memory management technique inspired by OS paging. It partitions KV Cache into blocks to reduce memory waste and support flexible sharing.
+PagedAttention 是一种受操作系统分页思想启发的 KV Cache 显存管理技术。它把 KV Cache 切分成 block，以减少显存浪费并支持更灵活的共享。
 
-## Q7: Why do long-context requests reduce concurrency?
+## Q7：为什么长上下文请求会降低并发？
 
-Long-context requests require larger KV Cache, consuming more GPU memory and reducing the number of requests that can be served concurrently.
+长上下文请求需要更大的 KV Cache，占用更多 GPU 显存，从而减少系统可以同时服务的请求数量。
 
-## Q8: What should an inference gateway do?
+## Q8：推理网关应该做什么？
 
-An inference gateway should provide routing, streaming forwarding, timeout control, rate limiting, metrics, token accounting, and backend protection.
+推理网关应该提供路由、流式转发、超时控制、限流、指标、token 统计和后端保护能力。
