@@ -1,42 +1,42 @@
-# TensorRT-LLM Notes
+# TensorRT-LLM 笔记
 
-## Goal
+## 目标
 
-Understand TensorRT-LLM as the NVIDIA GPU optimized inference path.
+理解 TensorRT-LLM 作为 NVIDIA GPU 优化推理路径的定位。
 
-This is not the first tool to master. Study it after running vLLM and SGLang.
+它不是第一阶段最需要掌握的工具。建议在跑通 vLLM 和 SGLang 之后再学习。
 
-## What To Learn
+## 需要学习什么
 
-- TensorRT-LLM architecture
-- engine build concept
-- serving model
+- TensorRT-LLM 架构
+- engine build 概念
+- Serving 模型
 - in-flight batching
 - paged KV cache
-- quantization
-- multi-GPU and multi-node serving
+- 量化
+- 多 GPU 与多节点 Serving
 - speculative decoding
 
-## Checklist
+## 清单
 
-- [ ] Read TensorRT-LLM overview
-- [ ] Understand build vs serve workflow
-- [ ] Compare it with vLLM and SGLang
-- [ ] Record hardware requirements
-- [ ] Run a small example if local GPU environment supports it
+- [ ] 阅读 TensorRT-LLM overview
+- [ ] 理解 build 和 serve 的工作流差异
+- [ ] 和 vLLM、SGLang 做对比
+- [ ] 记录硬件要求
+- [ ] 如果本地 GPU 环境支持，运行一个小例子
 
-## Questions To Answer
+## 需要回答的问题
 
-1. Why does TensorRT-LLM focus on NVIDIA GPUs?
-2. What is an engine in TensorRT/TensorRT-LLM?
-3. What is in-flight batching?
-4. What quantization modes are commonly used?
-5. When would a company choose TensorRT-LLM instead of vLLM?
+1. 为什么 TensorRT-LLM 重点面向 NVIDIA GPU？
+2. TensorRT/TensorRT-LLM 里的 engine 是什么？
+3. 什么是 in-flight batching？
+4. 常见的量化模式有哪些？
+5. 公司什么时候会选择 TensorRT-LLM，而不是 vLLM？
 
-## Comparison Template
+## 对比模板
 
-| system | strength | weakness | best scenario |
+| 系统 | 优势 | 劣势 | 最适合场景 |
 |---|---|---|---|
-| vLLM | easy serving, PagedAttention, broad community | may not be max performance on every NVIDIA path | general LLM serving |
-| SGLang | structured generation, runtime optimizations | more concepts to learn | agent / structured generation workloads |
-| TensorRT-LLM | NVIDIA optimized inference | deployment/build complexity | high-performance production on NVIDIA GPUs |
+| vLLM | serving 简单、PagedAttention、社区广 | 在所有 NVIDIA 路径上未必都是极限性能 | 通用 LLM Serving |
+| SGLang | 结构化生成、runtime 优化 | 需要学习的概念更多 | agent / 结构化生成负载 |
+| TensorRT-LLM | NVIDIA 优化推理 | 部署和 build 复杂度更高 | NVIDIA GPU 上的高性能生产环境 |
