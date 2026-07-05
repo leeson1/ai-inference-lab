@@ -1,15 +1,15 @@
 # CUDA Labs
 
-CUDA is the long-term depth path after the inference gateway is running.
+CUDA 是推理网关跑起来之后的长期深度方向。
 
-## Labs
+## 实验
 
 1. vector add
 2. matrix transpose
 3. reduction
 4. naive GEMM
 
-## Learning Goals
+## 学习目标
 
 - thread / block / grid
 - warp
@@ -17,11 +17,11 @@ CUDA is the long-term depth path after the inference gateway is running.
 - shared memory
 - memory coalescing
 - occupancy
-- stream and event
+- stream 和 event
 - Nsight profiling
 
-## Rule
+## 规则
 
-Do not let CUDA labs block the main AI inference gateway project.
+不要让 CUDA labs 阻塞主线 AI 推理网关项目。
 
-The first job-switching project is the gateway. CUDA/HPC is the long-term moat.
+第一阶段用于转行的项目是网关。CUDA/HPC 是长期护城河。
