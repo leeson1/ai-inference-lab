@@ -1,0 +1,9 @@
+name: mixed_workload
+cases:
+  - prompt: "Explain TTFT."
+    max_tokens: 64
+  - prompt: "Explain KV Cache and PagedAttention in LLM serving."
+    max_tokens: 256
+  - prompt: "Write a detailed comparison of vLLM, SGLang, and TensorRT-LLM."
+    max_tokens: 512
+concurrency: [5, 10, 20]

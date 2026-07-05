@@ -1,0 +1,10 @@
+services:
+  gateway:
+    build:
+      context: ../gateway
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../gateway/configs:/app/configs
+
+# This file is a placeholder. Add real Dockerfiles after the gateway implementation starts.

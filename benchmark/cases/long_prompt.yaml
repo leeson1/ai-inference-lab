@@ -1,0 +1,7 @@
+name: long_prompt
+prompt: |
+  Explain the difference between prefill and decode phases in LLM inference.
+  Include KV Cache, batching, GPU memory pressure, TTFT, TPOT, and throughput.
+  Then describe why long context workloads are harder to serve efficiently.
+max_tokens: 256
+concurrency: [1, 5, 10, 20]
