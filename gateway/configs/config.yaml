@@ -1,0 +1,18 @@
+server:
+  addr: ":8080"
+
+providers:
+  - name: vllm-local
+    type: openai-compatible
+    base_url: "http://localhost:8000"
+    models:
+      - qwen
+
+routing:
+  default_model: qwen
+  model_to_provider:
+    qwen: vllm-local
+
+limits:
+  request_timeout_ms: 120000
+  max_in_flight: 32
