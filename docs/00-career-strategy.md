@@ -1,75 +1,75 @@
-# Career Strategy: AI Inference -> HPC
+# 职业策略：AI 推理 -> HPC
 
-## Positioning
+## 定位
 
-The goal is not to become an algorithm researcher first. The goal is to become an engineer who can build, operate, measure, and optimize LLM inference systems.
+目标不是先成为算法研究员，而是成为能构建、运维、测量和优化 LLM 推理系统的工程师。
 
-Recommended path:
+推荐路线：
 
 ```text
-AI inference platform backend -> inference performance engineering -> CUDA/HPC/GPU infra
+AI 推理平台后端 -> 推理性能工程 -> CUDA/HPC/GPU Infra
 ```
 
-## Why Start from AI Inference
+## 为什么从 AI 推理开始
 
-Starting from AI inference is more practical than directly jumping into CUDA/HPC:
+相比直接跳到 CUDA/HPC，从 AI 推理切入更现实：
 
-- It connects naturally with backend engineering.
-- It has more job openings than pure CUDA/HPC roles.
-- It allows gradual exposure to GPU performance problems.
-- It produces resume-ready projects faster.
+- 它和后端工程能力衔接更自然。
+- 岗位数量通常比纯 CUDA/HPC 岗更多。
+- 可以逐步接触 GPU 性能问题。
+- 更容易较快产出能写进简历的项目。
 
-## Short-Term Role Target
+## 短期岗位目标
 
-Target roles for the first transition:
+第一阶段转型目标岗位：
 
 - AI Inference Platform Backend Engineer
 - LLM Serving Backend Engineer
 - Model Serving Platform Engineer
 - AI Infra Backend Engineer
 
-Core capability:
+核心能力：
 
-> Build reliable serving systems around vLLM, SGLang, TensorRT-LLM, model routing, streaming responses, observability, and benchmark analysis.
+> 围绕 vLLM、SGLang、TensorRT-LLM、模型路由、流式响应、可观测性和 benchmark 分析，构建可靠的 LLM Serving 系统。
 
-## Medium-Term Differentiation
+## 中期差异化能力
 
-After entering the field, deepen the following:
+进入领域后，继续深挖：
 
-- KV Cache memory management
+- KV Cache 显存管理
 - continuous batching
 - prefix caching
 - chunked prefill
 - speculative decoding
-- quantization
-- multi-GPU serving
-- GPU utilization monitoring
-- inference cost optimization
+- 量化
+- 多 GPU Serving
+- GPU 利用率监控
+- 推理成本优化
 
-## Long-Term Moat
+## 长期护城河
 
-Long-term technical moat should come from:
+长期技术护城河应该来自：
 
-- CUDA fundamentals
+- CUDA 基础
 - GPU memory hierarchy
-- profiling with Nsight
+- 使用 Nsight 做 profiling
 - Triton / CUTLASS / CUDA kernels
-- NCCL / RDMA basics
-- distributed GPU cluster operations
-- inference performance optimization
+- NCCL / RDMA 基础
+- 分布式 GPU 集群运维
+- 推理性能优化
 
-## What Not To Do
+## 不要做什么
 
-Avoid these traps:
+避免这些坑：
 
-- only building chatbot demos
-- only wrapping OpenAI APIs
-- only collecting learning notes without benchmark data
-- starting with deep CUDA kernel work before having inference serving context
-- spreading attention across AI inference, RL, game AI, and HPC at the same time
+- 只做 chatbot demo
+- 只包 OpenAI API
+- 只收集学习笔记，没有 benchmark 数据
+- 在还没有推理 serving 上下文之前，就直接长时间钻 CUDA kernel
+- 同时分散在 AI 推理、强化学习、游戏 AI 和 HPC 多个方向
 
-## Resume Direction
+## 简历叙事方向
 
-The final resume story should be:
+最终简历故事应该是：
 
-> Built a Go-based LLM inference gateway, integrated vLLM/SGLang backends, supported OpenAI-compatible APIs, streaming responses, model routing, rate limiting, Prometheus metrics, and benchmarked TTFT/TPOT/throughput under different workloads.
+> 构建了一个基于 Go 的 LLM 推理网关，接入 vLLM/SGLang 后端，支持 OpenAI-compatible API、流式响应、模型路由、限流、Prometheus 指标，并在不同负载下 benchmark 了 TTFT、TPOT 和吞吐。
