@@ -1,68 +1,68 @@
 # AI Inference Lab
 
-This repository is a hands-on learning and portfolio project for **LLM inference engineering**.
+这个仓库是一个面向 **LLM 推理工程** 的动手学习与作品集项目。
 
-The short-term goal is to move from game backend development into AI inference platform engineering. The long-term goal is to build a path toward GPU performance engineering, CUDA, and HPC.
+短期目标：从游戏后端开发转向 AI 推理平台工程。长期目标：逐步深入 GPU 性能工程、CUDA 和 HPC。
 
-## Career Direction
+## 职业方向
 
 ```text
-AI Inference Platform Backend -> Inference Performance Engineering -> CUDA / HPC / GPU Infra
+AI 推理平台后端 -> 推理性能工程 -> CUDA / HPC / GPU Infra
 ```
 
-This repo is designed around one practical project:
+这个仓库围绕一个实践项目展开：
 
-> Build a production-style LLM inference gateway and use it to study modern LLM serving systems.
+> 构建一个具备生产化雏形的 LLM 推理网关，并通过它系统学习现代 LLM Serving 系统。
 
-## Final Project
+## 最终项目
 
-A Go-based LLM inference gateway with:
+一个基于 Go 的 LLM 推理网关，包含：
 
-- OpenAI-compatible API forwarding
-- Streaming response forwarding
-- vLLM / SGLang backend routing
-- Model-level routing
-- Request timeout and cancellation
-- Basic rate limiting
-- Prometheus metrics
-- TTFT / TPOT / latency tracking
-- Token usage statistics
-- Benchmark reports
+- OpenAI-compatible API 转发
+- 流式响应转发
+- vLLM / SGLang 后端路由
+- 模型级路由
+- 请求超时与取消
+- 基础限流
+- Prometheus 指标
+- TTFT / TPOT / 延迟追踪
+- Token 用量统计
+- Benchmark 报告
 
-## Why This Project
+## 为什么做这个项目
 
-Modern LLM serving is not just API wrapping. The core engineering problems are latency, throughput, batching, KV cache memory, GPU utilization, scheduling, observability, and cost.
+现代 LLM Serving 不只是包一层 API。核心工程问题包括延迟、吞吐、batching、KV Cache 显存、GPU 利用率、调度、可观测性和成本。
 
-The main systems to study:
+主要学习对象：
 
 - vLLM
 - SGLang
 - TensorRT-LLM
-- CUDA / GPU profiling fundamentals
+- CUDA / GPU profiling 基础
 
-## Repository Structure
+## 仓库结构
 
 ```text
 .
 ├── ROADMAP.md
-├── docs/                  # Learning notes
-├── gateway/               # Go inference gateway project
-├── benchmark/             # Benchmark scripts and reports
-├── deploy/                # Local deployment configs
-├── cuda-labs/             # CUDA/HPC learning labs
-└── interview/             # Interview notes and resume bullets
+├── docs/                  # 学习笔记
+├── gateway/               # Go 推理网关项目
+├── benchmark/             # 压测脚本与报告
+├── deploy/                # 本地部署配置
+├── cuda-labs/             # CUDA/HPC 学习实验
+└── interview/             # 面试笔记与简历项目描述
 ```
 
-## Learning Principle
+## 学习原则
 
-Do not only read documents. Every learning unit should produce one of the following:
+不要只读文档。每个学习单元至少产出下面一种可见成果：
 
-- a runnable demo
-- a benchmark report
-- a design note
-- a comparison document
-- a resume-ready project summary
+- 一个可运行 demo
+- 一份 benchmark 报告
+- 一篇设计笔记
+- 一份对比文档
+- 一段可写进简历的项目总结
 
-## Current Phase
+## 当前阶段
 
-Start with Phase 1 in [ROADMAP.md](./ROADMAP.md): run vLLM locally, call the OpenAI-compatible API, and measure basic inference metrics.
+从 [ROADMAP.md](./ROADMAP.md) 的 Phase 1 开始：本地运行 vLLM，调用 OpenAI-compatible API，并测量基础推理指标。
