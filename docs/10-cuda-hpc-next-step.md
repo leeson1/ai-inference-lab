@@ -1,18 +1,18 @@
-# CUDA / HPC Next Step
+# CUDA / HPC 下一步
 
-## Positioning
+## 定位
 
-CUDA and HPC are the long-term moat, not the first job-switching entry point.
+CUDA 和 HPC 是长期护城河，不是第一阶段转行的入口。
 
-The recommended order:
+推荐顺序：
 
 ```text
-LLM serving -> inference performance -> CUDA/HPC
+LLM Serving -> 推理性能 -> CUDA/HPC
 ```
 
-## CUDA Foundation
+## CUDA 基础
 
-Learn:
+需要学习：
 
 - thread / block / grid
 - warp
@@ -24,7 +24,7 @@ Learn:
 - streams
 - events
 
-## Labs
+## 实验
 
 - vector add
 - matrix transpose
@@ -33,32 +33,32 @@ Learn:
 
 ## Profiling
 
-Use:
+使用：
 
 - Nsight Systems
 - Nsight Compute
 
-Questions:
+需要回答的问题：
 
-1. Is the kernel memory-bound or compute-bound?
-2. Are memory accesses coalesced?
-3. Is shared memory used correctly?
-4. Is occupancy reasonable?
-5. Is the bottleneck kernel execution, memory copy, or synchronization?
+1. kernel 是 memory-bound 还是 compute-bound？
+2. 显存访问是否 coalesced？
+3. shared memory 是否使用正确？
+4. occupancy 是否合理？
+5. 瓶颈是 kernel 执行、memory copy，还是 synchronization？
 
-## HPC Expansion
+## HPC 扩展
 
-After CUDA basics:
+CUDA 基础之后再扩展：
 
 - Triton
 - CUTLASS
 - NCCL
-- RDMA concepts
-- InfiniBand concepts
+- RDMA 概念
+- InfiniBand 概念
 - Slurm
-- Kubernetes GPU scheduling
-- distributed inference
+- Kubernetes GPU 调度
+- 分布式推理
 
-## Warning
+## 提醒
 
-Do not spend months only writing toy CUDA kernels before building the inference gateway. The gateway is the job-switching project; CUDA is the long-term depth path.
+不要在构建推理网关之前，花几个月只写玩具 CUDA kernel。网关是转行项目，CUDA 是长期深度方向。
