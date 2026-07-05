@@ -1,25 +1,25 @@
-# vLLM Notes
+# vLLM 笔记
 
-## Goal
+## 目标
 
-Use vLLM as the first practical LLM serving system.
+把 vLLM 作为第一个真正动手的 LLM Serving 系统。
 
-## Why vLLM
+## 为什么是 vLLM
 
-vLLM is a high-throughput LLM inference and serving engine. The most important concept to study first is PagedAttention, which manages KV Cache memory more efficiently.
+vLLM 是一个高吞吐的 LLM 推理与 Serving 引擎。第一阶段最重要的概念是 PagedAttention，它可以更高效地管理 KV Cache 显存。
 
-## Learning Checklist
+## 学习清单
 
-- [ ] Start an OpenAI-compatible vLLM server
-- [ ] Call `/v1/models`
-- [ ] Call `/v1/chat/completions`
-- [ ] Test streaming output
-- [ ] Measure TTFT
-- [ ] Measure total latency
-- [ ] Compare short prompt and long prompt
-- [ ] Compare low concurrency and high concurrency
+- [ ] 启动 OpenAI-compatible 的 vLLM server
+- [ ] 调用 `/v1/models`
+- [ ] 调用 `/v1/chat/completions`
+- [ ] 测试流式输出
+- [ ] 测量 TTFT
+- [ ] 测量总延迟
+- [ ] 对比短 prompt 和长 prompt
+- [ ] 对比低并发和高并发
 
-## Local Run Template
+## 本地运行模板
 
 ```bash
 python -m vllm.entrypoints.openai.api_server \
@@ -28,7 +28,7 @@ python -m vllm.entrypoints.openai.api_server \
   --port 8000
 ```
 
-## API Test
+## API 测试
 
 ```bash
 curl http://localhost:8000/v1/models
@@ -45,20 +45,20 @@ curl http://localhost:8000/v1/chat/completions \
   }'
 ```
 
-## Questions To Answer
+## 需要回答的问题
 
-1. What happens during prefill?
-2. What happens during decode?
-3. Why does KV Cache consume so much GPU memory?
-4. Why does batching improve throughput?
-5. Why can batching hurt latency?
-6. What does PagedAttention optimize?
+1. Prefill 阶段发生了什么？
+2. Decode 阶段发生了什么？
+3. 为什么 KV Cache 会占用大量 GPU 显存？
+4. 为什么 batching 能提升吞吐？
+5. 为什么 batching 可能伤害延迟？
+6. PagedAttention 优化了什么？
 
-## Benchmark Table
+## Benchmark 表
 
-| case | concurrency | prompt length | max tokens | TTFT | TPOT | total latency | notes |
+| case | 并发 | prompt 长度 | max tokens | TTFT | TPOT | 总延迟 | 备注 |
 |---|---:|---:|---:|---:|---:|---:|---|
-| short prompt | 1 | TBD | 128 | TBD | TBD | TBD | TBD |
-| long prompt | 1 | TBD | 128 | TBD | TBD | TBD | TBD |
-| short prompt | 10 | TBD | 128 | TBD | TBD | TBD | TBD |
-| long prompt | 10 | TBD | 128 | TBD | TBD | TBD | TBD |
+| 短 prompt | 1 | TBD | 128 | TBD | TBD | TBD | TBD |
+| 长 prompt | 1 | TBD | 128 | TBD | TBD | TBD | TBD |
+| 短 prompt | 10 | TBD | 128 | TBD | TBD | TBD | TBD |
+| 长 prompt | 10 | TBD | 128 | TBD | TBD | TBD | TBD |
