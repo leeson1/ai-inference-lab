@@ -1,39 +1,39 @@
-# SGLang Notes
+# SGLang 笔记
 
-## Goal
+## 目标
 
-Use SGLang as the second serving backend and compare it with vLLM.
+把 SGLang 作为第二个 Serving 后端，并与 vLLM 进行对比。
 
-## What To Learn
+## 需要学习什么
 
-- OpenAI-compatible serving
-- streaming output
-- structured output support
+- OpenAI-compatible Serving
+- 流式输出
+- 结构化输出支持
 - continuous batching
-- RadixAttention / KV Cache reuse concept
-- serving performance under mixed workloads
+- RadixAttention / KV Cache 复用概念
+- 混合负载下的 Serving 性能
 
-## Checklist
+## 清单
 
-- [ ] Start SGLang server
-- [ ] Call `/v1/models`
-- [ ] Call `/v1/chat/completions`
-- [ ] Test streaming
-- [ ] Run same benchmark cases used for vLLM
-- [ ] Write vLLM vs SGLang comparison
+- [ ] 启动 SGLang server
+- [ ] 调用 `/v1/models`
+- [ ] 调用 `/v1/chat/completions`
+- [ ] 测试流式输出
+- [ ] 运行和 vLLM 相同的 benchmark case
+- [ ] 写一份 vLLM vs SGLang 对比
 
-## Questions To Answer
+## 需要回答的问题
 
-1. What problem does SGLang try to solve?
-2. What is the relationship between frontend language and runtime?
-3. What is RadixAttention?
-4. In what workloads might SGLang be stronger than a plain serving engine?
-5. How does it compare with vLLM in API compatibility and deployment complexity?
+1. SGLang 试图解决什么问题？
+2. frontend language 和 runtime 的关系是什么？
+3. 什么是 RadixAttention？
+4. SGLang 可能在哪些负载下比普通 Serving 引擎更强？
+5. 它和 vLLM 在 API 兼容性、部署复杂度上如何对比？
 
-## Benchmark Table
+## Benchmark 表
 
-| case | backend | concurrency | max tokens | TTFT | TPOT | total latency | notes |
+| case | 后端 | 并发 | max tokens | TTFT | TPOT | 总延迟 | 备注 |
 |---|---|---:|---:|---:|---:|---:|---|
-| short prompt | SGLang | 1 | 128 | TBD | TBD | TBD | TBD |
-| long prompt | SGLang | 1 | 128 | TBD | TBD | TBD | TBD |
-| mixed workload | SGLang | 10 | 128 | TBD | TBD | TBD | TBD |
+| 短 prompt | SGLang | 1 | 128 | TBD | TBD | TBD | TBD |
+| 长 prompt | SGLang | 1 | 128 | TBD | TBD | TBD | TBD |
+| 混合负载 | SGLang | 10 | 128 | TBD | TBD | TBD | TBD |
