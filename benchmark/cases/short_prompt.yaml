@@ -1,0 +1,4 @@
+name: short_prompt
+prompt: "Explain KV Cache in LLM inference in three sentences."
+max_tokens: 128
+concurrency: [1, 5, 10, 20]
