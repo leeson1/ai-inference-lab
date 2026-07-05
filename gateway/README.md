@@ -1,26 +1,26 @@
 # Gateway
 
-Go-based LLM inference gateway.
+基于 Go 的 LLM 推理网关。
 
-## Goal
+## 目标
 
-Build a production-style gateway in front of vLLM/SGLang.
+在 vLLM/SGLang 前面构建一个具备生产化雏形的网关。
 
-## Features
+## 功能
 
-- OpenAI-compatible API forwarding
+- OpenAI-compatible API 转发
 - `/v1/models`
 - `/v1/chat/completions`
-- streaming response forwarding
-- provider abstraction
+- 流式响应转发
+- provider 抽象
 - vLLM provider
 - SGLang provider
-- model routing
-- request timeout and cancellation
-- basic rate limiting
-- Prometheus metrics
+- 模型路由
+- 请求超时与取消
+- 基础限流
+- Prometheus 指标
 
-## Planned Structure
+## 规划结构
 
 ```text
 gateway/
@@ -38,15 +38,15 @@ gateway/
 └── configs/config.yaml
 ```
 
-## First Milestone
+## 第一个里程碑
 
-Implement a minimal proxy:
+实现一个最小代理：
 
 ```text
 client -> gateway -> vLLM OpenAI-compatible server
 ```
 
-## API Example
+## API 示例
 
 ```bash
 curl http://localhost:8080/v1/models
