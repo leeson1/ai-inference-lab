@@ -1,27 +1,27 @@
 # Benchmark
 
-## Goal
+## 目标
 
-Measure LLM serving performance instead of guessing.
+用测量来理解 LLM Serving 性能，而不是靠猜。
 
-## Metrics
+## 指标
 
 - TTFT
 - TPOT
-- total latency
+- 总延迟
 - p50 / p95 / p99
 - requests per second
 - output tokens per second
 - success rate
 
-## Workloads
+## 负载
 
-- short prompt
-- long prompt
-- long output
-- mixed workload
+- 短 prompt
+- 长 prompt
+- 长输出
+- 混合负载
 
-## First Command Shape
+## 第一版命令形态
 
 ```bash
 python benchmark/bench.py \
@@ -31,9 +31,9 @@ python benchmark/bench.py \
   --max-tokens 128
 ```
 
-## Report Output
+## 报告输出
 
-Put benchmark reports under:
+把 benchmark 报告放到：
 
 ```text
 benchmark/reports/
