@@ -1,56 +1,56 @@
-# Batching and Scheduling
+# Batching 与调度
 
-## Core Idea
+## 核心思想
 
-LLM serving systems improve GPU utilization by batching multiple requests together.
+LLM Serving 系统通过把多个请求 batch 到一起，提高 GPU 利用率。
 
-The challenge is that requests have different prompt lengths, output lengths, arrival times, and priorities.
+难点在于：不同请求的 prompt 长度、输出长度、到达时间和优先级都不一样。
 
-## Static Batching
+## 静态 Batching
 
-Wait for a batch, then process it together.
+等待凑齐一个 batch，然后一起处理。
 
-Problem:
+问题：
 
-- poor latency for early requests
-- inefficient for variable-length outputs
+- 早到请求的延迟较差
+- 对变长输出不够高效
 
 ## Continuous Batching
 
-Dynamically add and remove requests while decoding is ongoing.
+在 decode 进行过程中，动态加入和移除请求。
 
-Benefits:
+收益：
 
-- better GPU utilization
-- higher throughput
-- better handling of variable-length requests
+- 更好的 GPU 利用率
+- 更高的吞吐
+- 更好地处理变长请求
 
-Tradeoff:
+取舍：
 
-- more complex scheduler
-- latency fairness issues
-- long requests can affect short requests
+- scheduler 更复杂
+- 存在延迟公平性问题
+- 长请求可能影响短请求
 
-## Scheduling Questions
+## 调度问题
 
-1. Should short requests have higher priority?
-2. Should long prefill requests be separated from decode-heavy requests?
-3. Should users have quotas?
-4. How should streaming requests be handled?
-5. How should timeouts and cancellation affect queued requests?
+1. 短请求是否应该有更高优先级？
+2. 长 prefill 请求是否应该和 decode-heavy 请求分开？
+3. 用户是否应该有 quota？
+4. 流式请求应该如何处理？
+5. 超时和取消应该如何影响排队请求？
 
-## Gateway-Level Scheduling
+## 网关层调度
 
-The Go gateway can implement simple policies first:
+Go 网关可以先实现简单策略：
 
-- max in-flight requests per backend
-- max queued requests
-- per-model concurrency limit
-- per-user rate limit
-- timeout and cancellation
+- 每个后端的最大 in-flight 请求数
+- 最大排队请求数
+- 每个模型的并发限制
+- 每个用户的 rate limit
+- 超时与取消
 
-## Serving-System-Level Scheduling
+## Serving 系统层调度
 
-vLLM/SGLang/TensorRT-LLM handle deeper GPU-level batching and scheduling.
+vLLM/SGLang/TensorRT-LLM 负责更深层的 GPU 级 batching 和调度。
 
-The gateway should not duplicate GPU scheduler logic, but it should protect the backend from overload.
+网关不应该重复实现 GPU scheduler 逻辑，但应该保护后端避免过载。
