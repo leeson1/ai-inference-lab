@@ -1,34 +1,34 @@
-# Benchmark Metrics
+# Benchmark 指标
 
-## Goal
+## 目标
 
-Build the habit of measuring inference systems instead of only reading about them.
+养成用测量理解推理系统的习惯，而不是只读文档。
 
-## Core Metrics
+## 核心指标
 
 ### TTFT
 
-Time To First Token.
+Time To First Token。
 
-Measures how long it takes before the first generated token is received by the client.
+衡量客户端收到第一个生成 token 之前需要等待多久。
 
-Important for user-perceived responsiveness.
+它对用户感知到的响应速度非常重要。
 
 ### TPOT
 
-Time Per Output Token.
+Time Per Output Token。
 
-Measures decode speed after the first token.
+衡量首 token 之后的 decode 速度。
 
-Important for long responses.
+它对长回答体验非常重要。
 
-### Total Latency
+### 总延迟
 
-End-to-end request duration.
+一次请求从开始到结束的端到端耗时。
 
-### Throughput
+### 吞吐
 
-Common forms:
+常见形式：
 
 - requests per second
 - output tokens per second
@@ -36,47 +36,47 @@ Common forms:
 
 ### P50 / P95 / P99
 
-Latency percentile metrics.
+延迟分位数指标。
 
-P95/P99 are usually more important than average latency in production systems.
+在生产系统中，P95/P99 通常比平均延迟更重要。
 
-### GPU Metrics
+### GPU 指标
 
-- GPU utilization
-- GPU memory used
-- GPU memory free
-- power usage
-- temperature
-- SM occupancy if profiling with Nsight
+- GPU 利用率
+- GPU 已用显存
+- GPU 空闲显存
+- 功耗
+- 温度
+- 使用 Nsight profiling 时关注 SM occupancy
 
-## Workload Dimensions
+## 负载维度
 
-A benchmark must vary these dimensions:
+benchmark 必须改变这些维度：
 
-- prompt length
-- output length
-- concurrency
-- model size
-- backend system
+- prompt 长度
+- 输出长度
+- 并发
+- 模型规模
+- 后端系统
 - stream vs non-stream
 
-## First Benchmark Cases
+## 第一批 Benchmark Case
 
-| case | prompt | output | concurrency |
+| case | prompt | 输出 | 并发 |
 |---|---|---:|---:|
-| short-prompt-low-concurrency | short | 128 | 1 |
-| short-prompt-high-concurrency | short | 128 | 20 |
-| long-prompt-low-concurrency | long | 128 | 1 |
-| long-prompt-high-concurrency | long | 128 | 20 |
-| long-output | short | 1024 | 5 |
-| mixed-workload | mixed | mixed | 20 |
+| short-prompt-low-concurrency | 短 | 128 | 1 |
+| short-prompt-high-concurrency | 短 | 128 | 20 |
+| long-prompt-low-concurrency | 长 | 128 | 1 |
+| long-prompt-high-concurrency | 长 | 128 | 20 |
+| long-output | 短 | 1024 | 5 |
+| mixed-workload | 混合 | 混合 | 20 |
 
-## Report Template
+## 报告模板
 
 ```md
-# Benchmark Report
+# Benchmark 报告
 
-## Environment
+## 环境
 
 - GPU:
 - Driver:
@@ -85,14 +85,14 @@ A benchmark must vary these dimensions:
 - Backend:
 - Command:
 
-## Results
+## 结果
 
 | case | concurrency | max tokens | TTFT p50 | TTFT p95 | TPOT p50 | total p95 | output tok/s |
 |---|---:|---:|---:|---:|---:|---:|---:|
 
-## Observations
+## 观察
 
-## Bottleneck Guess
+## 瓶颈猜测
 
-## Next Experiment
+## 下一个实验
 ```
