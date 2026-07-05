@@ -1,67 +1,67 @@
-# LLM Inference Basics
+# LLM 推理基础
 
-## Core Question
+## 核心问题
 
-Why is LLM inference expensive?
+为什么 LLM 推理成本很高？
 
-The cost comes mainly from:
+成本主要来自：
 
-- model size
-- prompt length
-- output length
-- KV Cache memory
-- batching strategy
-- GPU utilization
-- network and streaming overhead
+- 模型规模
+- prompt 长度
+- 输出长度
+- KV Cache 显存
+- batching 策略
+- GPU 利用率
+- 网络与流式传输开销
 
 ## Prefill
 
-Prefill processes the input prompt and builds the initial KV Cache.
+Prefill 负责处理输入 prompt，并构建初始 KV Cache。
 
-Characteristics:
+特点：
 
-- compute-heavy
-- benefits from parallelism
-- latency grows with prompt length
+- 计算密集
+- 能从并行计算中受益
+- 延迟会随着 prompt 长度增加而增加
 
 ## Decode
 
-Decode generates tokens one by one.
+Decode 逐 token 生成输出。
 
-Characteristics:
+特点：
 
-- memory-bandwidth-sensitive
-- depends heavily on KV Cache access
-- latency grows with output length
+- 对显存带宽敏感
+- 强依赖 KV Cache 访问
+- 延迟会随着输出长度增加而增加
 
 ## KV Cache
 
-KV Cache stores previous key/value tensors so the model does not recompute attention history for every generated token.
+KV Cache 保存历史 token 的 key/value tensor，避免模型在每次生成新 token 时重复计算完整 attention 历史。
 
-Why it matters:
+为什么重要：
 
-- it grows with sequence length
-- it consumes large GPU memory
-- it limits max concurrency
-- inefficient allocation causes fragmentation and waste
+- 它会随着序列长度增长
+- 它会占用大量 GPU 显存
+- 它会限制最大并发
+- 低效分配会造成碎片和浪费
 
-## Key Metrics
+## 核心指标
 
 ### TTFT
 
-Time To First Token.
+Time To First Token。
 
-Represents how long users wait before seeing the first generated token.
+表示用户看到第一个生成 token 之前需要等待多久。
 
 ### TPOT
 
-Time Per Output Token.
+Time Per Output Token。
 
-Represents decode speed after the first token.
+表示首 token 之后的 decode 速度。
 
 ### Throughput
 
-Usually measured as:
+通常用这些指标衡量：
 
 - requests per second
 - output tokens per second
@@ -69,30 +69,30 @@ Usually measured as:
 
 ### Latency
 
-Usually measured as:
+通常用这些指标衡量：
 
-- total request latency
-- p50 latency
-- p95 latency
-- p99 latency
+- 总请求延迟
+- p50 延迟
+- p95 延迟
+- p99 延迟
 
-## Important Tradeoff
+## 重要取舍
 
-Higher batching often improves throughput but may increase individual request latency.
+更高的 batching 通常能提升吞吐，但可能增加单个请求的延迟。
 
-Inference engineering is mostly about balancing:
+推理工程的核心大多是在下面几者之间做平衡：
 
 ```text
 latency vs throughput vs GPU memory vs cost
 ```
 
-## First Experiment
+## 第一个实验
 
-Run one model with vLLM and record:
+用 vLLM 运行一个模型并记录：
 
-| prompt type | concurrency | max tokens | TTFT | TPOT | total latency |
+| prompt 类型 | 并发 | max tokens | TTFT | TPOT | 总延迟 |
 |---|---:|---:|---:|---:|---:|
-| short | 1 | 128 | TBD | TBD | TBD |
-| long | 1 | 128 | TBD | TBD | TBD |
-| short | 10 | 128 | TBD | TBD | TBD |
-| long | 10 | 128 | TBD | TBD | TBD |
+| 短 prompt | 1 | 128 | TBD | TBD | TBD |
+| 长 prompt | 1 | 128 | TBD | TBD | TBD |
+| 短 prompt | 10 | 128 | TBD | TBD | TBD |
+| 长 prompt | 10 | 128 | TBD | TBD | TBD |
